@@ -1,0 +1,10 @@
+package:
+  name: sutils
+  version: v0.1
+build:
+  number: 1
+requirements:
+  build:
+    - python=3.7
+  run:
+    - python=3
