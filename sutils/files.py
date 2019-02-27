@@ -1,4 +1,5 @@
 import logging
+import tempfile
 import tarfile
 from os.path import (
     abspath, realpath, dirname, join, relpath, exists,
@@ -145,3 +146,26 @@ def find_prefix(source, level=0):
 def ensure_directory(fpath):
     if not exists(dirname(fpath)):
         os.makedirs(dirname(fpath))
+
+
+def repackage_tar_with_one_level(in_tarpath, out_tarpath, addprefix):
+    """
+    takes in_tarpath, but rewrites it so that there is alwyas
+    1 top level directory before all the crap. If the input
+    tar file directory hierarchy is deep enough, we strip
+    excess directories until there is one parent.
+
+    if the input tar file directory hierarchy is not deep enough,
+    we add <addprefix>
+    """
+    with tempfile.TemporaryDirectory() as target:
+        extract_all(in_tarpath, target)
+        try:
+            prefix = find_prefix(target, level=1)
+        except ValueError:
+            prefix = find_prefix(target)
+        else:
+            # we don't need or want it if
+            # the directoyr hierarchy is deep enough
+            addprefix = None
+        targz(out_tarpath, target, prefix=prefix, addprefix=addprefix)

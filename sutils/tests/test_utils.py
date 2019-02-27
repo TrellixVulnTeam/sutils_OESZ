@@ -7,7 +7,8 @@ from pytest import raises
 
 from ..files import (
     ensure_directory, find_prefix,
-    extract_all, targz
+    extract_all, targz,
+    repackage_tar_with_one_level
 )
 
 
@@ -136,8 +137,21 @@ def test_tar_prefix_cleaning2():
                 prefix = find_prefix(target, level=1)
             except ValueError:
                 prefix = find_prefix(target)
-            targz(dest2, target, prefix=prefix, addprefix='data')
+                targz(dest2, target, prefix=prefix, addprefix='notebooks')
         with tempfile.TemporaryDirectory() as target:
             extract_all(dest2, target)
-            assert exists(join(target, 'data/baz.py'))
-            assert exists(join(target, 'data/fo.py'))
+            assert exists(join(target, 'notebooks/baz.py'))
+            assert exists(join(target, 'notebooks/fo.py'))
+
+
+def test_tar_repackage():
+    with tempfile.TemporaryDirectory() as dest_dir:
+        dest = join(dest_dir, 'data.tar.gz')
+        dest2 = join(dest_dir, 'data2.tar.gz')
+        prep_data2(dest)
+        repackage_tar_with_one_level(dest, dest2, 'notebooks')
+        with tempfile.TemporaryDirectory() as target:
+            extract_all(dest2, target)
+            assert exists(join(target, 'notebooks/baz.py'))
+            assert exists(join(target, 'notebooks/fo.py'))
+            import ipdb;ipdb.set_trace()
