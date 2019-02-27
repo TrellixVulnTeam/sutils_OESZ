@@ -42,15 +42,30 @@ def extract_all(tarpath, destpath):
         tf.extractall(path=destpath, members=safemembers(tf))
 
 
-def targz(tarpath, source, prefix=None):
+def targz(tarpath, source, prefix=None, addprefix=None):
+    """
+    creates a tar.gz at tarpath(tarpath will be the path of the resulting file.
+    it should not be a directory).
+
+    walks source, and adds all files into the tar.gz
+
+    if prefix is specified, the arcname is taken relative to prefix.
+    otherwise, prefix is taken to be the source directory
+
+    if addprefix is specified, the arcname <addprefix>/<relpath to prefix>
+    """
+
     if prefix is None:
         prefix = source
-    with tarfile.open(tarpath, mode='w:gz') as f:
+    assert not exists(tarpath)
+    with tarfile.open(tarpath, mode='w:gz') as tarf:
         for root, dirs, files in os.walk(source):
             for f in files:
                 fpath = join(root, f)
                 arcname = relpath(fpath, prefix)
-                f.add(fpath, arcname=arcname)
+                if addprefix:
+                    arcname = join(addprefix, arcname)
+                tarf.add(fpath, arcname=arcname)
 
 
 def find_prefix(source, level=0):
