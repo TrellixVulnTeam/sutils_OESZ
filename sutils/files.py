@@ -58,7 +58,7 @@ def targz(tarpath, source, prefix=None, addprefix=None):
 
     if prefix is None:
         prefix = source
-    assert not exists(tarpath)
+    assert not isdir(tarpath)
     with tarfile.open(tarpath, mode='w:gz') as tarf:
         for root, dirs, files in os.walk(source):
             for f in files:
