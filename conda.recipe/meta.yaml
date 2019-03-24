@@ -1,6 +1,6 @@
 package:
   name: sutils
-  version: v0.1
+  version: {{ environ.get('VERSION', '0.1') }}
 build:
   number: 1
 requirements:
