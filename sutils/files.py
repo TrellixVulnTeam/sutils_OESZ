@@ -143,9 +143,13 @@ def find_prefix(source, level=0):
     # return join(source, *path)
 
 
-def ensure_directory(fpath):
-    if not exists(dirname(fpath)):
-        os.makedirs(dirname(fpath))
+def ensure_directory(fpath, isdir=False):
+    if not isdir:
+        path = dirname(fpath)
+    else:
+        path = fpath
+    if not exists(path):
+        os.makedirs(path)
 
 
 def repackage_tar_with_one_level(in_tarpath, out_tarpath, addprefix):
