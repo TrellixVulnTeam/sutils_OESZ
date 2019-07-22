@@ -27,3 +27,5 @@ class ADict(dict):
     def copy(self):
         ch = self.__class__(self)
         return ch
+
+    ## TODO fix deepcopy
