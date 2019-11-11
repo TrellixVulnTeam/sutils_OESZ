@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run: |
           echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-          echo "CONTEXT: ${DOCKER_USER},  ${DOCKER_PASS}"
+          make push_test_image
 workflows:
   version: 2
   build_image:
