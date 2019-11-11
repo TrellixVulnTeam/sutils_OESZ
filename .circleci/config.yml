@@ -12,5 +12,8 @@ workflows:
   version: 2
   build_image:
     jobs:
+      - hold_for_approval:
+          type: approval
       - build_image:
           context: docker_hub
+          requires: hold_for_approval
