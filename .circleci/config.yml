@@ -24,6 +24,7 @@ jobs:
       - checkout
       - run: |
           export PATH=/opt/conda/bin:${PATH}
+          export CONDA_OUTPUT=/tmp/output
           make dev_package
 workflows:
   version: 2
