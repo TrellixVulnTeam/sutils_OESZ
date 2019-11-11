@@ -35,17 +35,12 @@ workflows:
           filters:
             tags:
               only: /^test-image.*/
-  test:
-    jobs:
-      - test:
-          context: build
+            branches:
+              ignore: /.*/
   package:
     jobs:
       - test:
           context: build
-          filters:
-            tags:
-              only: /^prod.*/
       - package:
           requires:
             - test
@@ -53,3 +48,5 @@ workflows:
           filters:
             tags:
               only: /^prod.*/
+            branches:
+              ignore: /.*/
