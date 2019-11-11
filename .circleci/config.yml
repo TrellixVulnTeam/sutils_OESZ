@@ -40,15 +40,16 @@ workflows:
       - test:
           context: build
   package:
+    jobs:
       - test:
           context: build
           filters:
             tags:
               only: /^prod.*/
       - package:
-          context: build
           requires:
             - test
+          context: build
           filters:
             tags:
               only: /^prod.*/
