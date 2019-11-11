@@ -8,7 +8,7 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASS
           make test_image
 workflows:
-  verison: 2
+  version: 2
   build_image:
     jobs:
       - hold-for-approval:
