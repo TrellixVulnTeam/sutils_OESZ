@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build_image:
+  build_test_image:
     machine: true
     context: docker_hub
     steps:
@@ -8,13 +8,14 @@ jobs:
       - run: |
           echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
           make push_test_image
+
 workflows:
   version: 2
-  build_image:
+  build_test_image:
     jobs:
       - hold_for_approval:
           type: approval
-      - build_image:
+      - build_test_image:
           context: docker_hub
           requires:
             - hold_for_approval
