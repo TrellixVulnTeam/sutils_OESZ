@@ -6,6 +6,7 @@ jobs:
     steps:
       - checkout
       - run: |
+          echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
           echo "CONTEXT: ${DOCKER_USER},  ${DOCKER_PASS}"
 workflows:
   version: 2
