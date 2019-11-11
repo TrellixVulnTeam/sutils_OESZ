@@ -2,7 +2,7 @@ version: 2
 jobs:
   build_image:
     machine: true
-    context: "docker hub"
+    context: "docker_hub"
     steps:
       - checkout
       - run: |
