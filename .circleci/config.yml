@@ -30,7 +30,7 @@ workflows:
       - hold_for_approval:
           type: approval
       - build_test_image:
-          context: docker_hub
+          context: build
           requires:
             - hold_for_approval
   test_and_package:
