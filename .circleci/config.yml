@@ -37,10 +37,19 @@ workflows:
               only: /^test-image.*/
             branches:
               ignore: /.*/
+  test:
+    jobs:
+      - test:
+          context: build
   package:
     jobs:
       - test:
           context: build
+          filters:
+            tags:
+              only: /^prod.*/
+            branches:
+              ignore: /.*/
       - package:
           requires:
             - test
