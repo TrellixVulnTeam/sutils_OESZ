@@ -5,5 +5,5 @@ test:
 	py.test sutils
 dev_package:
 	bash ./dev_package.sh
-main_package:
+package:
 	bash ./package.sh

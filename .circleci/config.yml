@@ -16,7 +16,7 @@ jobs:
       - run: |
           export PATH=/opt/conda/bin:${PATH}
           make test
-  dev_package:
+  package:
     docker:
       - image: saturncloud/sutils-test
     context: build
@@ -25,7 +25,7 @@ jobs:
       - run: |
           export PATH=/opt/conda/bin:${PATH}
           export CONDA_OUTPUT=/tmp/output
-          make dev_package
+          make package
 workflows:
   version: 2
   build_test_image:
