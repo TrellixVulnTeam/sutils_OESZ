@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build_image:
+    context: "docker hub"
+    steps:
+      - checkout
+      - run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
+          make test_image
+workflows:
+  verison: 2
+  build_image:
+    jobs:
+      - hold-for-approval:
+          type: approval
+      - build_image:
+          requires: hold-for-approval
