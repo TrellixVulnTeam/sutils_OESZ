@@ -11,12 +11,16 @@ jobs:
   test:
     docker:
       - image: saturncloud/sutils-test
+    environment:
+      PATH: "/opt/conda/bin:${PATH}"
     steps:
       - checkout
       - run: |
           make test
   dev_package:
     context: build
+    environment:
+      PATH: "/opt/conda/bin:${PATH}"
     docker:
       - image: saturncloud/sutils-test
     steps:
