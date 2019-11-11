@@ -154,4 +154,3 @@ def test_tar_repackage():
             extract_all(dest2, target)
             assert exists(join(target, 'notebooks/baz.py'))
             assert exists(join(target, 'notebooks/fo.py'))
-            import ipdb;ipdb.set_trace()

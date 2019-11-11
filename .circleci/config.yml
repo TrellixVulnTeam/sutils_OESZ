@@ -2,13 +2,27 @@ version: 2
 jobs:
   build_test_image:
     machine: true
-    context: docker_hub
+    context: build
     steps:
       - checkout
       - run: |
           echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
           make push_test_image
-
+  test:
+    docker:
+      - image: saturncloud/sutils-test
+    steps:
+      - checkout
+      - run: |
+          make test
+  dev_package:
+    context: build
+    docker:
+      - image: saturncloud/sutils-test
+    steps:
+      - checkout
+      - run: |
+          make dev_package
 workflows:
   version: 2
   build_test_image:
@@ -19,3 +33,11 @@ workflows:
           context: docker_hub
           requires:
             - hold_for_approval
+  test_and_package:
+    jobs:
+      - test:
+          context: build
+      - dev_package:
+          context: build
+          requires:
+            - test

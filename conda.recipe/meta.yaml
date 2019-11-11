@@ -1,10 +1,11 @@
 package:
   name: sutils
-  version: {{ environ.get('VERSION', '0.1') }}
+  version: 0.7
 build:
   number: 1
+  noarch: generic
 requirements:
   build:
-    - python=3
+    - python=3.7
   run:
-    - python=3
+    - python=3.7
