@@ -2,11 +2,11 @@ version: 2
 jobs:
   build_image:
     machine: true
+    context: docker_hub
     steps:
       - checkout
       - run: |
-          docker login -u $DOCKER_USER -p $DOCKER_PASS
-          make test_image
+          echo "CONTEXT: ${DOCKER_USER},  ${DOCKER_PASS}"
 workflows:
   version: 2
   build_image:
