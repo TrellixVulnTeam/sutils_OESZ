@@ -1,6 +1,6 @@
 package:
   name: sutils
-  version: 0.7
+  version: os.environ.get('CIRCLE_TAG').split('-')[-1]
 build:
   number: 1
   noarch: generic
