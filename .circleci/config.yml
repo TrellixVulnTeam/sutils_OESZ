@@ -33,3 +33,11 @@ workflows:
           context: build
           requires:
             - hold_for_approval
+  test_and_package:
+    jobs:
+      - test:
+          context: build
+      - dev_package:
+          context: build
+          requires:
+            - test
