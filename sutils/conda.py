@@ -14,6 +14,8 @@ def query_conda(package_name:str, version:str, channels=List[str]) -> Dict:
     for channel in channels:
         cmd += ["-c", channel]
     cmd.append('--json')
+    cmd.append('--override-channels')
+    cmd.append(f"{package_name}={version}")
     output = run(cmd, capture_output=True, text=True).stdout
     return json.loads(output)
 
