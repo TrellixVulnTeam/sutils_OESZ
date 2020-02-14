@@ -1,0 +1,24 @@
+{
+  "caused_by": "None",
+  "channel_urls": [
+    "https://conda.anaconda.org/saturncloud/linux-64",
+    "https://conda.anaconda.org/saturncloud/noarch",
+    "https://conda.saturncloud.io/pkgs/linux-64",
+    "https://conda.saturncloud.io/pkgs/noarch",
+    "https://conda.anaconda.org/conda-forge/linux-64",
+    "https://conda.anaconda.org/conda-forge/noarch",
+    "https://repo.anaconda.com/pkgs/main/linux-64",
+    "https://repo.anaconda.com/pkgs/main/noarch",
+    "https://repo.anaconda.com/pkgs/r/linux-64",
+    "https://repo.anaconda.com/pkgs/r/noarch"
+  ],
+  "channels_formatted": "  - https://conda.anaconda.org/saturncloud/linux-64\n  - https://conda.anaconda.org/saturncloud/noarch\n  - https://conda.saturncloud.io/pkgs/linux-64\n  - https://conda.saturncloud.io/pkgs/noarch\n  - https://conda.anaconda.org/conda-forge/linux-64\n  - https://conda.anaconda.org/conda-forge/noarch\n  - https://repo.anaconda.com/pkgs/main/linux-64\n  - https://repo.anaconda.com/pkgs/main/noarch\n  - https://repo.anaconda.com/pkgs/r/linux-64\n  - https://repo.anaconda.com/pkgs/r/noarch",
+  "error": "PackagesNotFoundError: The following packages are not available from current channels:\n\n  - jupyter_saturn=1.2.8\n\nCurrent channels:\n\n  - https://conda.anaconda.org/saturncloud/linux-64\n  - https://conda.anaconda.org/saturncloud/noarch\n  - https://conda.saturncloud.io/pkgs/linux-64\n  - https://conda.saturncloud.io/pkgs/noarch\n  - https://conda.anaconda.org/conda-forge/linux-64\n  - https://conda.anaconda.org/conda-forge/noarch\n  - https://repo.anaconda.com/pkgs/main/linux-64\n  - https://repo.anaconda.com/pkgs/main/noarch\n  - https://repo.anaconda.com/pkgs/r/linux-64\n  - https://repo.anaconda.com/pkgs/r/noarch\n\nTo search for alternate channels that may provide the conda package you're\nlooking for, navigate to\n\n    https://anaconda.org\n\nand use the search bar at the top of the page.\n",
+  "exception_name": "PackagesNotFoundError",
+  "exception_type": "<class 'conda.exceptions.PackagesNotFoundError'>",
+  "message": "The following packages are not available from current channels:\n\n  - jupyter_saturn=1.2.8\n\nCurrent channels:\n\n  - https://conda.anaconda.org/saturncloud/linux-64\n  - https://conda.anaconda.org/saturncloud/noarch\n  - https://conda.saturncloud.io/pkgs/linux-64\n  - https://conda.saturncloud.io/pkgs/noarch\n  - https://conda.anaconda.org/conda-forge/linux-64\n  - https://conda.anaconda.org/conda-forge/noarch\n  - https://repo.anaconda.com/pkgs/main/linux-64\n  - https://repo.anaconda.com/pkgs/main/noarch\n  - https://repo.anaconda.com/pkgs/r/linux-64\n  - https://repo.anaconda.com/pkgs/r/noarch\n\nTo search for alternate channels that may provide the conda package you're\nlooking for, navigate to\n\n    https://anaconda.org\n\nand use the search bar at the top of the page.\n",
+  "packages": [
+    "jupyter_saturn=1.2.8"
+  ],
+  "packages_formatted": "  - jupyter_saturn=1.2.8"
+}

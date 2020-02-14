@@ -1,0 +1,33 @@
+{
+  "jupyter_saturn": [
+    {
+      "arch": null,
+      "build": "py37_1",
+      "build_number": 1,
+      "channel": "https://conda.anaconda.org/saturncloud/noarch",
+      "constrains": [],
+      "depends": [
+        "gitpython",
+        "jinja2",
+        "jupytext 1.2.1.*",
+        "nbdime",
+        "nbformat",
+        "python 3.7.*",
+        "pyyaml",
+        "sutils",
+        "timeago"
+      ],
+      "fn": "jupyter_saturn-1.2.7-py37_1.tar.bz2",
+      "md5": "35dde241f612323abf4d203e30299aab",
+      "name": "jupyter_saturn",
+      "noarch": "generic",
+      "package_type": "noarch_generic",
+      "platform": null,
+      "size": 5784099,
+      "subdir": "noarch",
+      "timestamp": 1576714489717,
+      "url": "https://conda.anaconda.org/saturncloud/noarch/jupyter_saturn-1.2.7-py37_1.tar.bz2",
+      "version": "1.2.7"
+    }
+  ]
+}
