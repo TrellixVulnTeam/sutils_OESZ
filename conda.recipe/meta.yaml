@@ -9,3 +9,8 @@ requirements:
     - python=3.7
   run:
     - python=3.7
+
+about:
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE
