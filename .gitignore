@@ -24,3 +24,5 @@ htmlcov
 .pytest_cache
 __pycache__/
 pdc.sqlite
+saturn-bld
+conda.recipe/LICENSE
