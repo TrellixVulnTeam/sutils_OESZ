@@ -1,6 +1,6 @@
 package:
   name: sutils
-  version: {{os.environ.get('CIRCLE_TAG').split('-')[-1]}}
+  version: {{os.environ.get('VERSION')}}
 build:
   number: 1
   noarch: generic

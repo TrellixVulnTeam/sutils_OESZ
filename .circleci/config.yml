@@ -16,16 +16,6 @@ jobs:
       - run: |
           export PATH=/opt/conda/bin:${PATH}
           make test
-  package:
-    docker:
-      - image: saturncloud/sutils-test
-    context: build
-    steps:
-      - checkout
-      - run: |
-          export PATH=/opt/conda/bin:${PATH}
-          export CONDA_OUTPUT=/tmp/output
-          make package
 workflows:
   version: 2
   build_test_image:
@@ -41,21 +31,4 @@ workflows:
     jobs:
       - test:
           context: build
-  package:
-    jobs:
-      - test:
-          context: build
-          filters:
-            tags:
-              only: /^prod.*/
-            branches:
-              ignore: /.*/
-      - package:
-          requires:
-            - test
-          context: build
-          filters:
-            tags:
-              only: /^prod.*/
-            branches:
-              ignore: /.*/
+  
