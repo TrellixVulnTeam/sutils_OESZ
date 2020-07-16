@@ -1,0 +1,15 @@
+name: Test
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Build test image
+        run: make build_test_image
+      - name: Test in docker
+        run: make test_in_docker
+      - name: Build in docker
+        run: make build_in_docker
